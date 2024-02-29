@@ -6,22 +6,22 @@ type DinnerPlates struct {
 	FreeStacks []int
 }
 
-func (this *DinnerPlates) AddFreeStacks(index int) {
+func (d *DinnerPlates) AddFreeStacks(index int) {
 
-	if len(this.FreeStacks) == 0 {
-		this.FreeStacks = append(this.FreeStacks, index)
+	if len(d.FreeStacks) == 0 {
+		d.FreeStacks = append(d.FreeStacks, index)
 		return
 	}
 
-	if index > this.FreeStacks[len(this.FreeStacks)-1] {
-		this.FreeStacks = append(this.FreeStacks, index)
+	if index > d.FreeStacks[len(d.FreeStacks)-1] {
+		d.FreeStacks = append(d.FreeStacks, index)
 		return
 	}
 
-	for i, v := range this.FreeStacks {
+	for i, v := range d.FreeStacks {
 		if index < v {
-			temp := append(this.FreeStacks[0:i], index)
-			this.FreeStacks = append(temp, this.FreeStacks[i:]...)
+			temp := append(d.FreeStacks[0:i], index)
+			d.FreeStacks = append(temp, d.FreeStacks[i:]...)
 
 		}
 	}
@@ -36,65 +36,65 @@ func Constructor(capacity int) DinnerPlates {
 	return plates
 }
 
-func (this *DinnerPlates) Push(val int) {
+func (d *DinnerPlates) Push(val int) {
 
-	l := len(this.Stacks)
+	l := len(d.Stacks)
 
-	if len(this.FreeStacks) > 0 {
-		for i, _ := range this.FreeStacks {
+	if len(d.FreeStacks) > 0 {
+		for i := range d.FreeStacks {
 
 			if l == 0 || i >= l {
 				break
 			}
 
-			if ok := this.Stacks[i].Push(val); ok {
+			if ok := d.Stacks[i].Push(val); ok {
 				return
 			}
 		}
 	}
 
-	if l == 0 || len(this.Stacks[l-1].data) == this.Capacity {
-		stack := *NewStack(this.Capacity)
+	if l == 0 || len(d.Stacks[l-1].data) == d.Capacity {
+		stack := *NewStack(d.Capacity)
 		stack.Push(val)
-		this.Stacks = append(this.Stacks, stack)
+		d.Stacks = append(d.Stacks, stack)
 	} else {
-		this.Stacks[l-1].data = append(this.Stacks[l-1].data, val)
+		d.Stacks[l-1].data = append(d.Stacks[l-1].data, val)
 	}
 
 }
 
-func (this *DinnerPlates) Pop() int {
-	for i := len(this.Stacks) - 1; i >= 0; i-- {
-		if ok, val := this.Stacks[i].Pop(); ok {
-			this.resize()
+func (d *DinnerPlates) Pop() int {
+	for i := len(d.Stacks) - 1; i >= 0; i-- {
+		if ok, val := d.Stacks[i].Pop(); ok {
+			d.resize()
 			return val
 		}
 	}
 	return -1
 }
 
-func (this *DinnerPlates) PopAtStack(index int) int {
+func (d *DinnerPlates) PopAtStack(index int) int {
 
-	if index >= len(this.Stacks) {
+	if index >= len(d.Stacks) {
 		return -1
 	}
 
-	if ok, val := this.Stacks[index].Pop(); ok {
-		if index == len(this.Stacks)-1 {
-			this.resize()
+	if ok, val := d.Stacks[index].Pop(); ok {
+		if index == len(d.Stacks)-1 {
+			d.resize()
 		}
-		this.AddFreeStacks(index)
+		d.AddFreeStacks(index)
 		return val
 	} else {
 		return -1
 	}
 }
 
-func (this *DinnerPlates) resize() {
-	l := len(this.Stacks)
+func (d *DinnerPlates) resize() {
+	l := len(d.Stacks)
 
-	if len(this.Stacks[l-1].data) == 0 {
-		this.Stacks = this.Stacks[:l-1]
+	if len(d.Stacks[l-1].data) == 0 {
+		d.Stacks = d.Stacks[:l-1]
 	}
 
 }
