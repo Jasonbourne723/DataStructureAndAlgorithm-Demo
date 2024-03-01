@@ -35,7 +35,7 @@ func Replace(num string, x int, y int) string {
 
 	bytes := []byte(num)
 
-	for i, _ := range bytes {
+	for i := range bytes {
 		if x == int(bytes[i]-'0') {
 			bytes[i] = byte('0' + y)
 		}
