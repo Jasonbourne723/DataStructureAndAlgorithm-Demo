@@ -1,4 +1,4 @@
-package golearn
+package tcp
 
 import (
 	"bufio"
@@ -36,20 +36,20 @@ func process(conn net.Conn) {
 		reader := bufio.NewReader(conn)
 
 		lenBytes, err := reader.Peek(4)
-
+		if err != nil {
+			fmt.Printf("err: %v\n", err)
+		}
 		buffer := bytes.NewBuffer(lenBytes)
 
 		var length int32
 		binary.Read(buffer, binary.LittleEndian, &length)
-
-		
 
 		n, err := reader.Read(buf[:])
 		if err != nil {
 			fmt.Printf("err: %v\n", err)
 		}
 
-		fmt.Println("接收到数据：%s ", string(buf[:n]))
+		fmt.Printf("接收到数据：%s \n", string(buf[:n]))
 	}
 
 }
