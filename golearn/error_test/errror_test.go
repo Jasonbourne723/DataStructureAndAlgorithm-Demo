@@ -11,7 +11,7 @@ import (
 func TestError(t *testing.T) {
 
 	if err := fail(); err != nil {
-		fmt.Printf("err: %v\n", err)
+		fmt.Printf("err: %+v\n", err)
 		fmt.Printf("errors.Cause(err): %v\n", errors.Cause(err))
 	}
 

@@ -49,3 +49,4 @@ func Filter[T any](s []T, fn func(t T) bool) []T {
 	}
 	return o
 }
+ 
