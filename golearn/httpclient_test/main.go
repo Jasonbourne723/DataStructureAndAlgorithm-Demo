@@ -31,7 +31,10 @@ func main() {
 	req, _ := http.NewRequest("GET", "http://localhost:8080/", nil)
 	req.Header.Add("AccessToken", "asdfsafasdfsf")
 
-	result, _ := client.Do(req)
+	result, err := client.Do(req)
+	if err != nil {
+		fmt.Printf("err: %v\n", err)
+	}
 
 	defer result.Body.Close()
 
