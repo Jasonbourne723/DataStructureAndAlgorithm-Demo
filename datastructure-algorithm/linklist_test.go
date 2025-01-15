@@ -15,5 +15,6 @@ func TestLinkList(t *testing.T) {
 	linkList.Insert(9)
 	linkList.Insert(29)
 
-	linkList.PrintAll()
+	linkList.Print()
+	linkList.ReversePrint()
 }

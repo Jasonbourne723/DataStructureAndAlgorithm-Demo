@@ -4,7 +4,8 @@ import "fmt"
 
 func main() {
 
-	i := 3
-	fmt.Println(i / 2)
+	var s []int
+
+	fmt.Printf("s: %v,%v\n", len(s), cap(s))
 
 }
