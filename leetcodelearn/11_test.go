@@ -13,3 +13,8 @@ func TestArea(t *testing.T) {
 
 	fmt.Printf("area: %v\n", area)
 }
+
+func TestLetterCombinations(t *testing.T) {
+	r := letterCombinations("234")
+	fmt.Printf("r: %v\n", r)
+}
