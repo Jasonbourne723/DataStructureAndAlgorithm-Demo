@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package search
 
 import (
 	"fmt"

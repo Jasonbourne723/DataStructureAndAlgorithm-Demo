@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package sort
 
 // 最大数是 4
 func BaseSort(array []int) []int {

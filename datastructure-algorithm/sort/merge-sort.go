@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package sort
 
 func MergeSort(array []int) []int {
 	if len(array) < 2 {

@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package sort
 
 import "testing"
 
