@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package stack
 
 import (
 	"fmt"

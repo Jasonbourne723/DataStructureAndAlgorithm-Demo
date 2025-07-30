@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package stack
 
 type Stack[T any] struct {
 	array     []T

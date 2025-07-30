@@ -1,4 +1,4 @@
-package DataStructureAndAlgorithm
+package array
 
 func reverse(a []int) []int {
 
